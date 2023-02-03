@@ -20,7 +20,8 @@ func main() {
 	newsletterHandler := handler.Build()
 
 	libGroup := r.Group("/newsletter")
-	libGroup.GET("", newsletterHandler.Get)
+	libGroup.GET("/subscriptions", newsletterHandler.Get)
+	libGroup.POST("/subscription", newsletterHandler.Create)
 
 	err := r.Run(":" + os.Getenv("PORT"))
 	if err != nil {

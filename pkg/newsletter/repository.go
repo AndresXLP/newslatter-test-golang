@@ -15,4 +15,8 @@ type Repository interface {
 		limit int,
 		offset int,
 	) ([]*Subscription, error)
+	Create(
+		ctx context.Context,
+		interest []Interest,
+	) error
 }

@@ -13,4 +13,8 @@ type Service interface {
 		BlogID uuid.UUID,
 		Interests []Interest,
 	) (*Result[*Subscription], error)
+	Create(
+		ctx context.Context,
+		interest []Interest,
+	) error
 }

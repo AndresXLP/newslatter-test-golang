@@ -15,5 +15,14 @@ func (r *repository) Search(
 	limit int,
 	offset int,
 ) ([]*newsletter.Subscription, error) {
-	panic("implement me")
+	var dataResponse []*newsletter.Subscription
+	dataSubs := &newsletter.Subs
+	for _, data := range *dataSubs {
+		if userID == data.UserID && blogID == data.BlogID {
+			dataResponse = append(dataResponse, data)
+		}
+	}
+
+	return dataResponse, nil
+
 }
